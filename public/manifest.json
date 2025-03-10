@@ -1,0 +1,20 @@
+{
+  "short_name": "Pasionne",
+  "name": "Pasionne admin panel",
+  "icons": [
+    {
+      "src": "https://api.pasionne.com/public/uploadImages/52026b1f-525e-465b-ba5c-f5a9610f4f3f_Logo new1 1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://api.pasionne.com/public/uploadImages/52026b1f-525e-465b-ba5c-f5a9610f4f3f_Logo new1 1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

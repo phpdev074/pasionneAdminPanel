@@ -1,0 +1,71 @@
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
+import Typography from '@mui/material/Typography';
+
+import { baseUrl } from 'src/helper/axios';
+
+import AppWidgetSummary from '../app-widget-summary';
+
+// ----------------------------------------------------------------------
+
+export default function AppView() {
+  const [totalUsers, setTotalUsers] = useState(0);
+
+  const fetchUserData = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${baseUrl}user/get-all-user-data`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      setTotalUsers(response?.data?.data.totalUsers || 0);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  return (
+    <Container maxWidth="xl">
+      <Typography variant="h4" sx={{ mb: 5 }}>
+        Hi, Welcome back 👋
+      </Typography>
+
+      <Grid container spacing={3}>
+        <Grid xs={12} sm={6} md={3}>
+          <AppWidgetSummary
+            title="Total Users"
+            total={totalUsers}
+            color="info"
+            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_users.png" />}
+          />
+        </Grid>
+
+        <Grid xs={12} sm={6} md={3}>
+          <AppWidgetSummary
+            title="Total Payments"
+            total="900 £"
+            color="info"
+            icon={
+              <img
+                alt="Payment summary icon"
+                src="https://pasionneapi.codingacademy.world/public/uploadImages/34353f33-0e81-49b3-8c77-468f5e49add2_1333266.png"
+              />
+            }
+          />
+        </Grid>
+
+        <Grid xs={12} sm={6} md={3}>
+          &nbsp;
+        </Grid>
+      </Grid>
+    </Container>
+  );
+}

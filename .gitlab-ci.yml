@@ -1,0 +1,33 @@
+stages:
+  - push_code  # Stage to push the code
+
+variables:
+  ANSIBLE_HOST_KEY_CHECKING: "False"  # Skip host key checking for SSH
+  SSH_PASS: $SSH_PASS  # Use the SSH password stored in GitLab CI/CD variables
+
+push_code:
+  stage: push_code  
+  tags:
+    - db-runner  # Runner tag for the job
+  before_script:
+    # Install required packages (sudo, ansible, sshpass)
+    - apt-get update && apt-get install -y sudo
+    - sudo apt-get update && sudo apt-get install -y ansible sshpass
+  script:
+    # Server 1 (web0)
+    # Create and set permissions for the temporary directory
+    - sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_USER@$WEB0 "sudo mkdir -p /tmp/pasionne/adminpanel && sudo chmod 777 /tmp/pasionne/adminpanel"
+    # Delete existing files in the final destination directory
+    - sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_USER@$WEB0 "sudo rm -rf /opt/www/adminpanel/pasionne*"
+    # Copy files to the temporary directory
+    - sshpass -p "$SSH_PASS" scp -o StrictHostKeyChecking=no -r ./* $SSH_USER@$WEB0:/tmp/pasionne/adminpanel/
+
+    # Delete existing files in the final destination directory
+    - sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_USER@$WEB0 "sudo mkdir /opt/www/adminpanel/pasionne"
+
+    # Move files from the temporary directory to the final destination
+    - sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_USER@$WEB0 "sudo mv /tmp/pasionne/adminpanel/* /opt/www/adminpanel/pasionne/"
+    
+    
+  only:
+    - main  # Run the pipeline only for changes in the 'main' branch
