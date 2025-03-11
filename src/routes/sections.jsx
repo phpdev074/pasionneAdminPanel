@@ -25,7 +25,7 @@ export const Page404 = lazy(() => import('src/pages/page-not-found'));
 export const ContactUsPage = lazy(()=> import('src/pages/contactusView'))
 export const TestimonialPage = lazy(()=> import('src/pages/testimonial'))
 export const MemeberShipPage = lazy(()=> import('src/pages/membership'))
-export const UnverifiedUsers = lazy(()=> import('src/pages/unverifiedUser'))
+export const UnverifiedUsers = lazy(()=> import('src/pages/unVerifiedUser'))
 export const VerifyUsers = lazy(()=> import('src/pages/verified-user'))
 
 export default function Router() {
