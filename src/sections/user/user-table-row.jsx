@@ -168,7 +168,7 @@ export default function UserTableRow({
         <TableCell component="th" scope="row" align="center" padding="none">
           <Stack direction="row" alignItems="right" spacing={1}>
             <Avatar
-              src={`https://api.pasionne.com/public/uploadImages/${avatarUrl}`}
+              src={`https://pasionneapi.codingacademy.world/public/uploadImages/${avatarUrl}`}
               alt={name}
               loading="lazy"
             />

@@ -62,7 +62,7 @@ export default function UserTableRow({
         return;
       }
       const response = await axios.put(
-        `https://api.pasionne.com/api/user/user-soft-delete?id=${_id}`,
+        `https://pasionneapi.codingacademy.world/api/user/user-soft-delete?id=${_id}`,
         {}, 
         {
           headers: {

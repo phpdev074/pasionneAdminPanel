@@ -31,7 +31,7 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
       }}
       {...other}
     >
-      <svg xmlns="https://api.pasionne.com/public/uploadImages/52026b1f-525e-465b-ba5c-f5a9610f4f3f_Logo new1 1.png" width="100%" height="100%" viewBox="0 0 512 512">
+      <svg xmlns="https://pasionneapi.codingacademy.world/public/uploadImages/622c9e89-8e67-49b9-adc0-81424926b6d1_Logo new1 1.png" width="100%" height="100%" viewBox="0 0 512 512">
         <defs>
           <linearGradient id="BG1" x1="100%" x2="50%" y1="9.946%" y2="50%">
             <stop offset="0%" stopColor={PRIMARY_DARK} />

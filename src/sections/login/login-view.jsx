@@ -84,7 +84,7 @@ export default function LoginView() {
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.background.default, 0.9),
-          imgUrl: '/assets/background/overlay_4.jpg',
+          imgUrl: 'https://pasionneapi.codingacademy.world/public/uploadImages/622c9e89-8e67-49b9-adc0-81424926b6d1_Logo new1 1.png',
         }),
         height: 1,
       }}

@@ -78,7 +78,7 @@ export default function PostTableRow({
 
     try {
        await axios.post(
-        `https://api.pasionne.com/api/post-property/edit-parking?id=${id}`,
+        `https://pasionneapi.codingacademy.world/api/post-property/edit-parking?id=${id}`,
         editValues,
         {
           headers: {
@@ -104,7 +104,7 @@ export default function PostTableRow({
 
     try {
       await axios.delete(
-        `https://api.pasionne.com/api/post-property/delete-parking?id=${id}`,
+        `https://pasionneapi.codingacademy.world/api/post-property/delete-parking?id=${id}`,
         {
           headers: {
             Authorization: `${token}`,

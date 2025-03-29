@@ -56,7 +56,7 @@ export default function AppView() {
             icon={
               <img
                 alt="Payment summary icon"
-                src="https://pasionneapi.codingacademy.world/public/uploadImages/34353f33-0e81-49b3-8c77-468f5e49add2_1333266.png"
+                src="https://pasionneapi.codingacademy.world/public/uploadImages/3b9a0e1c-9a36-4551-b242-afc6331d1d5e_payments.png"
               />
             }
           />
